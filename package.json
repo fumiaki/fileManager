@@ -1,0 +1,21 @@
+{
+  "name": "filemanager",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "set NODE_ENV=dev && set DEBUG=* && node --experimental-modules server.mjs",
+    "test01": "set NODE_ENV=dev && set DEBUG=* && node --experimental-modules test01.mjs"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@polymer/lit-element": "^0.5.2",
+    "csv": "^3.1.0",
+    "csv-stringify-as-promised": "^2.0.3",
+    "koa": "^2.5.1",
+    "koa-mount": "^3.0.0",
+    "koa-route": "^3.2.0",
+    "koa-static": "^5.0.0"
+  }
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>File Manage</title>
+    <!--script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script-->
+    <script type="module" src="MyElement.js"></script>
+</head>
+<body>
+  <div>File Manage</div>
+  <fm-list id="list"></fm-list>
+  <script>
+    window.onload = function() {
+      loadJson(".")
+    }
+
+    function loadJson(path) {
+      fetch('/json/' + path)
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(json) {
+          console.log(json);
+          list.items = json
+      });
+    }
+  </script>
+</body>
+</html>
