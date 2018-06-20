@@ -11,16 +11,21 @@
   <fm-list id="list"></fm-list>
   <script>
     window.onload = function() {
-      loadJson(".")
+      loadJson("")
+    }
+    window.onpopstate = function(e) {
+      console.log(e)
+      loadJson(e.state, false)
     }
 
-    function loadJson(path) {
+    function loadJson(path, state=true) {
       fetch('/json/' + path)
         .then(function(response) {
           return response.json();
         })
         .then(function(json) {
-          console.log(json);
+          //console.log(json);
+          if (state) history.pushState(path, null, "/ui/"+path)
           list.items = json
       });
     }
